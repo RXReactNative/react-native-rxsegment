@@ -1,5 +1,5 @@
 {
-  "name": "RXSegment",
+  "name": "rxsegment",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -16,7 +16,8 @@
     "react-native-web-webview": "^0.2.8",
     "react-native-webview": "^7.2.5",
     "react-navigation": "^4.0.8",
-    "react-navigation-stack": "^1.9.0"
+    "react-navigation-stack": "^1.9.0",
+    "react-native-rxsegment": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

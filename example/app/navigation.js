@@ -14,7 +14,7 @@ const MainStNavigatorackNav = createStackNavigator(
   },
   {
     initialRouteName: 'home',
-    headerMode: 'none',
+    // headerMode: 'none',
     mode: 'card',
     navigationOptions: () => ({
       gesturesEnabled: true,
