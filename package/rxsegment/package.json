@@ -1,0 +1,34 @@
+
+{
+  "name": "react-native-rxsegment",
+  "version": "0.0.2",
+  "description": "React Native RXSegmentfor iOS & Android & windows.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "tab",
+    "tab-view",
+    "segment",
+    "rxsegment",
+    "react-component",
+    "react-native-rxsegment",
+    "react native segment",
+    "ios",
+    "android",
+    "windows"
+  ],
+  "author": "srxboys (https://github.com/srxboys)",
+  "license": "MIT",
+  "repository": "https://github.com/RXReactNative/react-native-rxsegment/tree/master/package/rxsegment",
+  "main": "index.js",
+  "peerDependencies": {
+    "react-native": ">=0.41.2"
+  },
+  "devDependencies": {
+      "react": "^16.0.0",
+      "react-native": "^0.41.2",
+      "prop-types": "*"
+  }
+}

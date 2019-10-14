@@ -3,6 +3,19 @@
 #
 .DS_Store
 
+#
+/dist
+/.vscode
+package-lock.json
+yarn.lock
+yarn-error.log
+/script/sh_result.txt
+/script/rn-package.log
+/scriptWeb
+/scriptApp
+/ios/bundle
+/android/app/src/main/assets/index.android.bundle
+
 # node.js
 #
 node_modules/
