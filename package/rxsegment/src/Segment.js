@@ -27,7 +27,6 @@ class Segment extends Component {
       PropTypes.string,
       PropTypes.number,
     ])),
-    wxBrowser: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -35,7 +34,6 @@ class Segment extends Component {
     scrollStyle: {},
     renderTabBar: null,
     tabBarLabels: [],
-    wxBrowser: false,
   };
 
   constructor(props, context) {
@@ -148,7 +146,6 @@ class Segment extends Component {
   }
 
   renderChilder = () => {
-    const { wxBrowser } = this.props;
     const { contents } = this.state;
     return(
       <View style={{flex: 1}}>
