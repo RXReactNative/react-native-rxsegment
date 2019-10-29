@@ -11,8 +11,8 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Platform,
   View,
+  Keyboard,
   ScrollView,
 } from 'react-native';
 
@@ -29,7 +29,6 @@ class Segment extends Component {
       PropTypes.string,
       PropTypes.number,
     ])),
-    wxBrowser: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -37,7 +36,6 @@ class Segment extends Component {
     scrollStyle: {},
     renderTabBar: null,
     tabBarLabels: [],
-    wxBrowser: false,
   };
 
   constructor(props, context) {
@@ -50,8 +48,9 @@ class Segment extends Component {
     this.childrenViews = [];
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     let { children } = nextProps;
+    children = children || [];
     let currentChildren = this.childrenViews || {};
     let currentLength = currentChildren.length || 0;
     let length = children.length || 0;
@@ -91,22 +90,23 @@ class Segment extends Component {
 
   changeViewToHidden(view, index=0, zIndex) {
     return React.cloneElement(view, {
-      key: 'rx-segment-item-'+index,
+      key: 'segment-item-'+index,
       style: [styles.viewHidden, {zIndex}],
     });
   }
 
   changeViewToShow(view, index=0, zIndex=1000) {
     return React.cloneElement(view,{
-      key: 'rx-segment-item-'+index,
+      key: 'segment-item-'+index,
       style: [styles.viewShow, {zIndex}],
     });
   }
 
   changeSelect = (index) => {
+    Keyboard.dismiss();
     let { contents, selectIndex } = this.state;
-    if(index>=contents.length) return;
-    let length = contents.length;
+    let length = contents.length || 0;
+    if(index >= length) return;
     if(index != selectIndex) {
       var lastView = contents[selectIndex];
       if(React.isValidElement(lastView)) {
@@ -150,22 +150,12 @@ class Segment extends Component {
   }
 
   renderChilder = () => {
-    const { wxBrowser } = this.props;
     const { contents } = this.state;
-    if(wxBrowser && Platform.OS === 'web') { //微信公众账号、小程序
-      return (
-        <ScrollView style={{flex: 1}}>
-          {contents}
-        </ScrollView>
-      )
-    }
-    else {
-      return(
-        <View style={{flex: 1}}>
-          {contents}
-        </View>
-      )
-    }
+    return(
+      <View style={{flex: 1}}>
+        {contents}
+      </View>
+    )
   }
 
   render(){
@@ -191,8 +181,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   viewShow: {
-    ...StyleSheet.absoluteFill,
-    overflow: 'scroll',
+    flex: 1,
   },
   viewHidden: {
     position: 'absolute',
