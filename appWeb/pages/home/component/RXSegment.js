@@ -19,7 +19,7 @@ import {
   RXSegmentTabBar
 } from '../../../../package/rxsegment';
 
-export default class RXxSegment extends Component {
+export default class RXSegment extends Component {
   static propTypes = {
     ...View.propTypes,
     tabBarLabels: PropTypes.arrayOf(PropTypes.oneOfType([

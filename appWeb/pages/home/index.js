@@ -6,7 +6,7 @@ import {
 
 import RXPage from '../../common/component/RXPage';
 
-import RXxSegment from './component/RXxSegment';
+import RXSegment from './component/RXSegment';
 import ListPageOne from '../listPages/ListPageOne';
 import ListPageTwo from '../listPages/ListPageTwo';
 
@@ -36,10 +36,10 @@ export default class Home extends RXPage {
     return(
       <View style={{flex: 1, backgroundColor: 'gary'}}>
         <Text style={{marginBottom: 10}}>{'分段开始'}</Text>
-        <RXxSegment tabBarLabels={['ios', 'android']}>
+        <RXSegment tabBarLabels={['ios', 'android']}>
           <ListPageOne navigation={this.navigation}/>
           <ListPageTwo navigation={this.navigation}/>
-        </RXxSegment>
+        </RXSegment>
       </View>
     )
   }

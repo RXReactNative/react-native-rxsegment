@@ -12,6 +12,8 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
+  Keyboard,
+  ScrollView,
 } from 'react-native';
 
 import SegmentTabBar from './SegmentTabBar';
@@ -48,6 +50,7 @@ class Segment extends Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     let { children } = nextProps;
+    children = children || [];
     let currentChildren = this.childrenViews || {};
     let currentLength = currentChildren.length || 0;
     let length = children.length || 0;
@@ -100,9 +103,10 @@ class Segment extends Component {
   }
 
   changeSelect = (index) => {
+    Keyboard.dismiss();
     let { contents, selectIndex } = this.state;
-    if(index>=contents.length) return;
-    let length = contents.length;
+    let length = contents.length || 0;
+    if(index >= length) return;
     if(index != selectIndex) {
       var lastView = contents[selectIndex];
       if(React.isValidElement(lastView)) {
@@ -178,7 +182,6 @@ const styles = StyleSheet.create({
   },
   viewShow: {
     flex: 1,
-    overflow: 'scroll',
   },
   viewHidden: {
     position: 'absolute',
