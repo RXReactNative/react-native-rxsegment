@@ -13,7 +13,6 @@ import {
   StyleSheet,
   View,
   Keyboard,
-  ScrollView,
 } from 'react-native';
 
 import SegmentTabBar from './SegmentTabBar';
@@ -52,20 +51,18 @@ class Segment extends Component {
     let { children } = nextProps;
     children = children || [];
     let currentChildren = this.childrenViews || {};
-    let currentLength = currentChildren.length || 0;
-    let length = children.length || 0;
-    if(length != currentLength) {
-      this.configDefaultContent();
+    if(children != currentChildren) {
+      this.configDefaultContent(nextProps);
     }
   }
 
-  configDefaultContent() {
-    this.childrenViews = this.buildChildren();
+  configDefaultContent(props) {
+    this.childrenViews = this.buildChildren(props);
     let length = this.childrenViews.length;
     var contents = [];
-    let selectIndex = 0;
+    let selectIndex = this.state.selectIndex || 0;
     for(let i=0; i < length; i++) {
-      if(i > 0){
+      if(i !== selectIndex){
         let empty = null;
         contents.push( empty );
       } 
@@ -77,8 +74,8 @@ class Segment extends Component {
     this.setState({contents, selectIndex})
   }
 
-  buildChildren() {
-    let { children } = this.props;
+  buildChildren(props) {
+    let { children } = props;
 
     if (!children) {
       children = [];
