@@ -24,7 +24,6 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
       - run: cd package/rxsegment/
       - run: npm publish
         env:
