@@ -21,7 +21,6 @@ import PropTypes from 'prop-types';
 class Segment extends Component {
   static propTypes = {
     ...View.propTypes,
-    scrollStyle: PropTypes.any,
     renderTabBar: PropTypes.func,
     tabBarLabels: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.element,
@@ -32,7 +31,6 @@ class Segment extends Component {
 
   static defaultProps = {
     ...View.defaultProps,
-    scrollStyle: {},
     renderTabBar: null,
     tabBarLabels: [],
   };
@@ -60,19 +58,19 @@ class Segment extends Component {
     this.childrenViews = this.buildChildren(props);
     let length = this.childrenViews.length;
     var contents = [];
-    let selectIndex = this.state.selectIndex || 0;
+    let selectIndex = this.state.selectIndex;
+    if(selectIndex>=length) selectIndex=0;
     for(let i=0; i < length; i++) {
       if(i !== selectIndex){
         let empty = null;
         contents.push( empty );
       } 
       else {
-        let view = this.changeViewToShow(this.childrenViews[0], 0, length);
+        let view = this.changeViewToShow(this.childrenViews[i], i, length);
         contents.push(view)
       }
     }
     this.setState({contents, selectIndex});
-    this.changeSelect(selectIndex);
   }
 
   buildChildren(props) {
@@ -174,9 +172,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 0,
     margin: 0,
-  },
-  scrollStyle: {
-    flex: 1,
   },
   viewShow: {
     flex: 1,
