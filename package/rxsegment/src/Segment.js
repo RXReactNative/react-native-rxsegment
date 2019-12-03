@@ -71,7 +71,8 @@ class Segment extends Component {
         contents.push(view)
       }
     }
-    this.setState({contents, selectIndex})
+    this.setState({contents, selectIndex});
+    this.changeSelect(selectIndex);
   }
 
   buildChildren(props) {
