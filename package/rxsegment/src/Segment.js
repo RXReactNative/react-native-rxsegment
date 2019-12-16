@@ -45,6 +45,10 @@ class Segment extends Component {
     this.childrenViews = [];
   }
 
+  componentDidMount() {
+    this.configDefaultContent(this.props);
+  }
+
   UNSAFE_componentWillReceiveProps(nextProps) {
     let { children } = nextProps;
     children = children || [];
@@ -62,8 +66,8 @@ class Segment extends Component {
     if(selectIndex>=length) selectIndex=0;
     for(let i=0; i < length; i++) {
       if(i !== selectIndex){
-        let empty = null;
-        contents.push( empty );
+        let view = this.changeViewToHidden(this.childrenViews[i], i, length);
+        contents.push(view)
       } 
       else {
         let view = this.changeViewToShow(this.childrenViews[i], i, length);
