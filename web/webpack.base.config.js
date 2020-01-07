@@ -7,11 +7,9 @@ const babelLoaderConfiguration = {
   test: /\.js$/,
   include: [
     path.resolve(appDirectory, "js"),
-    path.resolve(appDirectory, "web/src"),
+    path.resolve(appDirectory, "src/"),
+    path.resolve(appDirectory, "package/"),
     path.resolve(appDirectory, "node_modules/@react-navigation"),
-    path.resolve(appDirectory, "node_modules/react-native-md5"),
-    path.resolve(appDirectory, "node_modules/react-native-root-siblings"),
-    path.resolve(appDirectory, "node_modules/static-container"),
     path.resolve(appDirectory, "node_modules/react-native-gesture-handler"),
     path.resolve(appDirectory, "node_modules/react-navigation-stack"),
     path.resolve(appDirectory, "node_modules/react-navigation-tabs"),

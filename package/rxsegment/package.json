@@ -21,11 +21,12 @@
   ],
   "author": "srxboys (https://github.com/srxboys)",
   "license": "MIT",
-  "repository": "https://github.com/RXReactNative/react-native-rxsegment/tree/master/package/rxsegment",
-  "main": "index.js",
-  "peerDependencies": {
-    "react-native": ">=0.41.2"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RXReactNative/react-native-rxsegment.git",
+    "directory": "package/rxsegment"
   },
+  "main": "index.js",
   "devDependencies": {
       "react": "^16.0.0",
       "react-native": "^0.41.2",

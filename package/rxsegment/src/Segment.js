@@ -40,8 +40,8 @@ class Segment extends Component {
     this.state = {
       selectIndex: 0,
       contents: [],
-      contentsCache: [],
     }
+    this.contentsCache = [],
     this.childrenViews = [];
   }
 
@@ -63,10 +63,21 @@ class Segment extends Component {
     let length = this.childrenViews.length;
     var contents = [];
     let selectIndex = this.state.selectIndex;
+
+    let contentsCache = this.contentsCache;
+    let cacheLength = contentsCache.length;
+
     if(selectIndex>=length) selectIndex=0;
     for(let i=0; i < length; i++) {
+      let cacheItem = contentsCache[i];
+
       if(i !== selectIndex){
-        let view = this.changeViewToHidden(this.childrenViews[i], i, length);
+        var view = null;
+        if(cacheItem && i <= cacheLength) {
+          if(cacheItem.key) {
+            view = this.changeViewToHidden(this.childrenViews[i], i, length);
+          }
+        }        
         contents.push(view)
       } 
       else {
@@ -120,6 +131,10 @@ class Segment extends Component {
     }
     if(React.isValidElement(view)) {
       view = this.changeViewToShow(view, index, length+index);
+      let cacheItem = this.contentsCache[index];
+      if(!cacheItem || !cacheItem.key) {
+        this.contentsCache[index]=view;
+      }
     }
     contents[index] = view;
 
