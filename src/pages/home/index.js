@@ -31,7 +31,17 @@ export default class Home extends RXPage {
   }
 
   static navigationRightTitle() {
-    return '测试';
+    return '我的';
+  }
+
+  navigateRightPress = () => {
+    this.navigation.navigate('mine');
+  }
+
+  reload = () => {
+    if(this.refTwo && this.refTwo.reload) {
+      this.refTwo.reload();
+    }
   }
 
 
@@ -41,7 +51,7 @@ export default class Home extends RXPage {
         <Text style={{marginBottom: 10}}>{'分段开始'}</Text>
         <RXSegment tabBarLabels={['ios', 'android']}>
           <ListPageOne navigation={this.navigation}/>
-          <ListPageTwo navigation={this.navigation}/>
+          <ListPageTwo ref={(e)=>this.refTwo=e} navigation={this.navigation} navPush={this.reload}/>
         </RXSegment>
       </View>
     )

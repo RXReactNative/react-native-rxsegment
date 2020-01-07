@@ -87,8 +87,11 @@ class RXPage extends Component {
     let rightTitle = this.navigationRightTitle();
     var navMap = {};
     if(this._stringEnable(title)) {
-      navMap['title'] = navigation.getParam('otherParam', '首页')
+      navMap['title'] = title;
     }
+    // else {
+    //   navMap['title'] = navigation.getParam('otherParam', 'title')
+    // }
 
     if(this._stringEnable(backTitle)) {
       navMap['headerBackTitle'] =  backTitle+'';
@@ -119,18 +122,18 @@ class RXPage extends Component {
     return true;
   }
 
-  static navigationTitle() {
-    return null;
-  }
+  // static navigationTitle() {
+  //   return null;
+  // }
 
-  static navigationBackTitle() {
-    return null;
-  }
+  // static navigationBackTitle() {
+  //   return null;
+  // }
 
-  static navigationRightTitle() {
-    // 可以是组件 ， 也可以是 number / string
-    return null;
-  }
+  // static navigationRightTitle() {
+  //   // 可以是组件 ， 也可以是 number / string
+  //   return null;
+  // }
 //  ----------------------------------------------------------
 }
 

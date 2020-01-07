@@ -6,6 +6,7 @@ import React,{ Component } from 'react';
 import {
   View,
   Text,
+  Button,
   ScrollView
 } from 'react-native';
 
@@ -25,6 +26,13 @@ export default class ListPageOne extends Component {
         <View style={{flex: 1,backgroundColor: 'gary'}}>
           <View style={{flex: 1, marginTop: 100, height: 40, backgroundColor: 'blue'}}/>
           <Text>{'1111111111'}</Text>
+          <Button 
+            title={'跳转 - 我的'}
+            color={'blue'}
+            onPress={()=>{
+              this.props.navigation.navigate('mine');
+            }}
+          />
           <View style={{flex: 1, marginTop: 100, height: 400, backgroundColor: 'blue'}}/>
         </View>
       </ScrollView>
