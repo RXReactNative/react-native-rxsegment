@@ -27,12 +27,14 @@ class Segment extends Component {
       PropTypes.string,
       PropTypes.number,
     ])),
+    tabBarStyle: PropTypes.any,
   }
 
   static defaultProps = {
     ...View.defaultProps,
     renderTabBar: null,
     tabBarLabels: [],
+    tabBarStyle: {},
   };
 
   constructor(props, context) {
@@ -142,9 +144,9 @@ class Segment extends Component {
   }
 
   renderTabBarView = () => {
-    const { renderTabBar, tabBarLabels } = this.props;
+    const { renderTabBar, tabBarLabels, tabBarStyle } = this.props;
     const { selectIndex } = this.state;
-    if(renderTabBar) {
+    if(renderTabBar && typeof renderTabBar === 'function') {
       let view = renderTabBar();
       return React.cloneElement(view,{
         selectIndex,
@@ -154,7 +156,7 @@ class Segment extends Component {
     else {
       return (
         <SegmentTabBar
-          style={{ backgroundColor: 'white'}}
+          style={ [{backgroundColor: 'blue'}, tabBarStyle] }
           tabBarLabels={tabBarLabels}
           selectIndex={selectIndex}
           underlineStyle={ {width: 25, height: 2} }
