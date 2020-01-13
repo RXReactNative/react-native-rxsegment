@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 import Home from './pages/home/index';
-import Mine from './pages/mine/index';
+import Diy from './pages/diy/index';
 
 import {
   createAppContainer,
@@ -12,7 +12,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 const MainStNavigatorackNav = createStackNavigator(
   {
     home: { screen: Home },
-    mine: { screen: Mine },
+    diy: { screen: Diy },
   },
   {
     initialRouteName: 'home',

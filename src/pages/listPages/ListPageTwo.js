@@ -40,11 +40,11 @@ export default class ListPageTwo extends Component {
     let _that = this;
     return new Promise(function (resolve, reject) { 
       setTimeout(() => {
-        let array = _that.falseData();
-        let dataList = _that.state.dataList.concat(array);
-        _that.setState({  dataList });
-      }, 1000);
-      resolve()
+          let array = _that.falseData();
+          let dataList = _that.state.dataList.concat(array);
+          _that.setState({  dataList });
+          resolve()
+        }, 2000);
     });
   }
 
@@ -58,6 +58,8 @@ export default class ListPageTwo extends Component {
     this.setState({  dataList });
   }
 
+  _keyExtractor = (item, index) => item.id;
+
   render() {
     const { style, navPush } = this.props;
     const { dataList } = this.state;
@@ -66,21 +68,21 @@ export default class ListPageTwo extends Component {
         <View style={{marginTop: 100, height: 40, backgroundColor: 'yellow'}}/>
         <Text>{'2222222222222'}</Text>
         <Button 
-            title={'跳转 - 我的'}
+            title={'jump diy'}
             color={'blue'}
             onPress={()=>{
               if(navPush && typeof navPush === 'function') {
                 navPush();
               }
               if(Platform.OS === 'web') {
-                this.props.navigation.navigate('mine');
+                this.props.navigation.navigate('diy');
               }
             }}
           />
         <RXFlatList
           renderItem={this.renderItem}
           data={dataList}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => ''+index}
           onPullDown={this.refreshData}
           // onPullUp={this.refreshData}
           // itemSeparatorComponent={this.separator}

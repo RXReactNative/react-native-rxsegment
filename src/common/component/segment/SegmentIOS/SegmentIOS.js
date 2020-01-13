@@ -14,12 +14,10 @@ import {
 
 import PropTypes from 'prop-types';
 
-import {
-  RXSegment,
-  RXSegmentTabBar
-} from '../../../../package/rxsegment';
+import RXSegment from 'react-native-rxsegment';
+import SegmentTab from './SegmentTab';
 
-export default class RXSegmentT extends Component {
+export default class SegmentIOS extends Component {
   static propTypes = {
     ...View.propTypes,
     tabBarLabels: PropTypes.arrayOf(PropTypes.oneOfType([
@@ -39,16 +37,18 @@ export default class RXSegmentT extends Component {
   }
 
   render() {
-    const { style, tabBarLabels, children } = this.props;
+    const { style, tabBarLabels, children, ...other } = this.props;
     return(
         <RXSegment
           style={[styles.container, style]}
           tabBarLabels={tabBarLabels}
           renderTabBar={()=>
-            <RXSegmentTabBar 
-              style={{ backgroundColor: 'red'}}
+            <SegmentTab 
               tabBarLabels={tabBarLabels}
-              underlineStyle={ {width: 25, height: 2} }
+              // labelBorderRadius={0}
+              // middenLineEnable={true}
+              // middenLineStyle={{width: 5}}
+              {...other}
             />
           }
         >

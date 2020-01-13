@@ -5,3 +5,7 @@ Support iOS/Android/web
 
 ## Getting started
 `$ npm install react-native-rxsegment --save`
+
+
+<br />
+![srxboys](https://github.com/RXReactNative/react-native-rxsegment/blob/master/screen_img/segment.png)

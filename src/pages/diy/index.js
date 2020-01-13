@@ -7,7 +7,7 @@ import {
 
 import RXPage from '../../common/component/RXPage';
 
-import RXSegment from '../home/component/RXSegment';
+import SegmentIOS from '../../common/component/segment/SegmentIOS/SegmentIOS';
 import ListPageOne from '../listPages/ListPageOne';
 import ListPageTwo from '../listPages/ListPageTwo';
 
@@ -16,38 +16,38 @@ export default class Mine extends RXPage {
     super(props);
   }
 
-  //目前 web的没有写好
+  //目前 web的没有写好 (No support for Web)
   static navigationOptions = ({ navigation }) => {
     if(Platform.OS != 'web')
     return this.configNavigation(navigation);
   }
 
   static navigationTitle() {
-    return '我的';
+    return 'diy segment && tabBar';
   }
 
   static navigationBackTitle() {
-    return '试试返回';
+    return '1-back';
   }
 
   static navigationRightTitle() {
-    return '测试-2';
+    return 'right';
   }
 
 
   navigateRightPress = () => {
-    alert('我的 - 导航栏 right onPress');
+    alert('right onPress');
   }
 
 
   render() {
     return(
       <View style={{flex: 1, backgroundColor: 'white'}}>
-        <Text style={{marginBottom: 10}}>{'分段开始 mine'}</Text>
-        <RXSegment tabBarLabels={['ios', 'android']}>
+        <Text style={{marginBottom: 10}}>{'diy segment'}</Text>
+        <SegmentIOS tabBarLabels={['ios', 'android', 'web']}>
           <ListPageOne navigation={this.navigation}/>
           <ListPageTwo navigation={this.navigation}/>
-        </RXSegment>
+        </SegmentIOS>
       </View>
     )
   }

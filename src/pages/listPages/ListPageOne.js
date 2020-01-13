@@ -27,7 +27,7 @@ export default class ListPageOne extends Component {
           <View style={{flex: 1, marginTop: 100, height: 40, backgroundColor: 'blue'}}/>
           <Text>{'1111111111'}</Text>
           <Button 
-            title={'跳转 - 我的'}
+            title={'jump diy -- -- '}
             color={'blue'}
             onPress={()=>{
               this.props.navigation.navigate('mine');

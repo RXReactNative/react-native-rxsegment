@@ -53,6 +53,10 @@ class SegmentTabBar extends Component {
     this.labelMeasures = [];
   }
 
+  renderMiddenLine(index=0) {
+    return null;
+  }
+
   renderLabel(title='', index) {
     const { tabBarStyle, labelStyle, selectIndex, activeTextColor, inactiveTextColor, onPress } = this.props;
     let fontWeight = index === selectIndex?{fontWeight: "bold", color: activeTextColor}:{ color: inactiveTextColor}
@@ -92,6 +96,9 @@ class SegmentTabBar extends Component {
       else {
         let itemView = this.renderLabel('', i);
         labelViews.push(itemView);
+      }
+      if(i + 1 < length) {
+        labelViews.push(this.renderMiddenLine(i));
       }
     }
     return labelViews;
