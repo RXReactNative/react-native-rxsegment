@@ -8,4 +8,5 @@ Support iOS/Android/web
 
 
 <br />
+
 ![srxboys](https://github.com/RXReactNative/react-native-rxsegment/blob/master/screen_img/segment.png)
