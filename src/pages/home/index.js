@@ -7,7 +7,7 @@ import {
 
 import RXPage from '../../common/component/RXPage';
 
-import RXSegment from 'react-native-rxsegment';
+import RXSegment, { RXSegmentTabBar } from 'react-native-rxsegment';
 import SegmentTab from '../../common/component/segment/SegmentIOS/SegmentTab';
 
 export default class Home extends RXPage {
@@ -56,8 +56,14 @@ export default class Home extends RXPage {
 
         <RXSegment
           style={styles.segmentHeader}
-          tabBarStyle={{ backgroundColor: '#7D26CD', paddingTop: 20}}
-          tabBarLabels={['ios', 'android', 'web', '']}
+          renderTabBar={()=>
+            <RXSegmentTabBar
+              style={{ backgroundColor: '#7D26CD', paddingTop: 20}}
+              tabBarLabels={['ios', 'android', 'web', '']}
+              activeTextColor={'red'}
+              underlineStyle={ {width: 50, height: 3, backgroundColor: 'red'} }
+            />
+          }
         >
           <View style={styles.container}/>
           <View style={styles.container}/>

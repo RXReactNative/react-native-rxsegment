@@ -12,8 +12,6 @@ declare module 'react-native-rxsegment' {
   } from 'react-native'
 
   export class RXSegment extends Component<ViewProps> {
-    scrollStyle?: StyleProp<ViewStyle>;
-
     /**
      * renderTabBar={()=>
      *     <RXSegmentTabBar 
@@ -56,6 +54,10 @@ declare module 'react-native-rxsegment' {
     selectIndex?: number;
 
     onPress?: ()=>{};
+
+    //diy
+    renderMiddenLine(index: number): Component;
+    renderLabel(title: string,index: number): Component;
   }
   
 }

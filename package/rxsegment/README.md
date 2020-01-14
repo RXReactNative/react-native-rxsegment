@@ -4,9 +4,35 @@
 Support iOS/Android/web
 
 ## Getting started
-
 `$ npm install react-native-rxsegment --save`
 
 
+<br />
 
+![srxboys](https://github.com/RXReactNative/react-native-rxsegment/blob/master/screen_img/segment.png)
 
+```js
+//default
+      <RXSegment 
+        tabBarStyle={{ backgroundColor: 'blue', paddingTop: 20}}
+        tabBarLabels={['ios', 'android', 'web']}
+      >
+        <View style={styles.container}/>
+      </RXSegment>
+
+//diy
+      <RXSegment
+          style={styles.segmentHeader}
+          renderTabBar={()=>
+            <RXSegmentTabBar
+              style={{ backgroundColor: '#7D26CD', paddingTop: 20}}
+              tabBarLabels={['ios', 'android', 'web', '']}
+              activeTextColor={'red'}
+              underlineStyle={ {width: 50, height: 3, backgroundColor: 'red'} }
+            />
+          }
+        >
+          <View style={styles.container}/>
+          <View style={styles.container}/>
+        </RXSegment>
+```
