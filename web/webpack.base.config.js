@@ -15,6 +15,7 @@ const babelLoaderConfiguration = {
     path.resolve(appDirectory, "node_modules/react-navigation-tabs"),
     path.resolve(appDirectory, "node_modules/react-navigation-drawer"),
     path.resolve(appDirectory, "node_modules/react-native-screens"),
+    path.resolve(appDirectory, "node_modules/react-native-rxsegment"),
     path.resolve(
       appDirectory,
       "node_modules/react-native-keyboard-aware-scroll-view"
