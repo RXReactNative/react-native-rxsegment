@@ -7,6 +7,9 @@ Support iOS/Android/web
 `$ npm install react-native-rxsegment --save`
 
 
+`演示 web` / `show web`
+https://rxreactnative.github.io/react-native-rxsegment/
+
 <br />
 
 ![srxboys](https://github.com/RXReactNative/react-native-rxsegment/blob/master/screen_img/segment.png)
