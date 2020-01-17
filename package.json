@@ -5,10 +5,11 @@
   "scripts": {
     "start": "react-native start",
     "test": "jest",
-    "web-build-dev": "NODE_ENV=development && npm run cleanDistNginx &&  ./node_modules/.bin/webpack -p --config ./web/webpack.dev.config.js",
-    "web-build-prod": "set NODE_ENV=production && npm run cleanDist && ./node_modules/.bin/webpack -p --config ./web/webpack.prod.config.js",
-    "cleanDist": "rm -rf dist",
-    "cleanDistNginx": "rm -rf  /usr/local/Cellar/nginx/1.17.0/html/dist"
+    "web-build-dev": "NODE_ENV=development && npm run cleanDocs &&  ./node_modules/.bin/webpack -p --config ./web/webpack.dev.config.js",
+    "web-build-prod": "set NODE_ENV=production && npm run cleanDocs && ./node_modules/.bin/webpack -p --config ./web/webpack.prod.config.js",
+    "web-nginx-dev": "NODE_ENV=development && npm run cleanDocsNginx &&  ./node_modules/.bin/webpack -p --config ./web/webpack.dev.config.js",
+    "cleanDocs": "rm -rf  docs",
+    "cleanDocsNginx": "rm -rf  /usr/local/Cellar/nginx/1.17.0/html/dist"
   },
   "dependencies": {
     "react": "16.8.6",

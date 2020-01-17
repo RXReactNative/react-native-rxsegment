@@ -83,8 +83,8 @@ module.exports = {
   output: {
     chunkFilename:"common."+new Date().getTime()+".js",
     filename: "bundle."+new Date().getTime()+".js",
-    // path: path.resolve(appDirectory, "dist"),
-    path: '/usr/local/Cellar/nginx/1.17.0/html/dist',
+    path: path.resolve(appDirectory, "docs"),
+    // path: '/usr/local/Cellar/nginx/1.17.0/html/dist',
     devtoolModuleFilenameTemplate: info =>
       "file://" + path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")
   },
