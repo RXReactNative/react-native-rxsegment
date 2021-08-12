@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# +===================================+ 
+# +===================================+
 # +                                   +
 # +      Mac - 启动iOS模拟器            +
 # +                                   +
@@ -20,7 +20,7 @@
 
 # path=$(find ~/Library/Developer/Xcode/DerivedData/${project_name}-*/Build/Products/Debug-iphonesimulator -name "${app_name}.app" | head -n 1)
 # echo "${path}"
- 
+
 # filename=${path_to_MultiSimConfig.txt}
 # grep -v '^#' $filename | while read -r line
 # do
@@ -50,7 +50,7 @@ xcrun instruments -w "iPhone Xʀ (12.2)"
 # 问：为什么 `react-native run-ios` 启动不了 => “Could not find iPhone 6 simulator”
 # 答：在 ./node_modules/react-native/local-cli/runIOS/runIOS.js 默认启动就是 `iPhone 6`的设备
 #     而你的Xcode随着时间不断的更新，已经没有这个模拟器的，就启动不了了
-# 
+#
 #
 #
 #  react-native 指定模拟器启动

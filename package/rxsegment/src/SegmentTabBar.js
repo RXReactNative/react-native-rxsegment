@@ -1,7 +1,7 @@
 /**
- * 
- * @this 
- * 
+ *
+ * @this
+ *
  * @flow
  */
 
@@ -41,7 +41,7 @@ class SegmentTabBar extends Component {
     labelStyle: {},
     activeTextColor: '#FFF',
     inactiveTextColor: 'rgba(255, 255, 255, 0.8)',
-    onPress: (index)=>{},
+    onPress: (index) => { },
     selectIndex: 0,
   };
 
@@ -53,21 +53,21 @@ class SegmentTabBar extends Component {
     this.labelMeasures = [];
   }
 
-  renderMiddenLine(index=0) {
+  renderMiddenLine(index = 0) {
     return null;
   }
 
-  renderLabel(title='', index) {
+  renderLabel(title = '', index) {
     const { tabBarStyle, labelStyle, selectIndex, activeTextColor, inactiveTextColor, onPress } = this.props;
-    let fontWeight = index === selectIndex?{fontWeight: "bold", color: activeTextColor}:{ color: inactiveTextColor}
+    let fontWeight = index === selectIndex ? { fontWeight: "bold", color: activeTextColor } : { color: inactiveTextColor }
     return (
       <TouchableOpacity
-        key={'tabBar-label-'+index}
+        key={'tabBar-label-' + index}
         style={[styles.labelContent, tabBarStyle]}
-        activeOpacity={index != selectIndex?0.7:1}
-        onPress={()=>{ 
-          if(index != selectIndex) {
-            onPress && onPress(index) 
+        activeOpacity={index != selectIndex ? 0.7 : 1}
+        onPress={() => {
+          if (index != selectIndex) {
+            onPress && onPress(index)
           }
         }}
       >
@@ -77,19 +77,19 @@ class SegmentTabBar extends Component {
   }
 
   renderTabBarLabel = () => {
-    const { tabBarLabels  } = this.props;
-    if(!(Array.isArray(tabBarLabels) && tabBarLabels.length)) {
+    const { tabBarLabels } = this.props;
+    if (!(Array.isArray(tabBarLabels) && tabBarLabels.length)) {
       return null;
     }
     let length = tabBarLabels.length;
-    
+
     let labelViews = [];
-    for(let i=0; i<length; i++) {
+    for (let i = 0; i < length; i++) {
       let label = tabBarLabels[i] || '';
-      if(React.isValidElement(label)) {
+      if (React.isValidElement(label)) {
         labelViews.push(label)
       }
-      else if(typeof label === 'string' || typeof label === 'number') {
+      else if (typeof label === 'string' || typeof label === 'number') {
         let itemView = this.renderLabel(label, i);
         labelViews.push(itemView);
       }
@@ -97,7 +97,7 @@ class SegmentTabBar extends Component {
         let itemView = this.renderLabel('', i);
         labelViews.push(itemView);
       }
-      if(i + 1 < length) {
+      if (i + 1 < length) {
         labelViews.push(this.renderMiddenLine(i));
       }
     }
@@ -110,26 +110,26 @@ class SegmentTabBar extends Component {
     tabBarLabels = tabBarLabels || [];
     var lineWidth = {};
     let marginLeft = {};
-    if(Array.isArray(tabBarLabels)) {
-      let row = (1/(tabBarLabels.length*1.0)) * 100;
-      lineWidth = {width: row+'%'};
+    if (Array.isArray(tabBarLabels)) {
+      let row = (1 / (tabBarLabels.length * 1.0)) * 100;
+      lineWidth = { width: row + '%' };
 
-      if(selectIndex < tabBarLabels.length) {
-        let left = selectIndex * row;      
-        if(left === 1) {
+      if (selectIndex < tabBarLabels.length) {
+        let left = selectIndex * row;
+        if (left === 1) {
           left = 100;
         }
-        marginLeft = {marginLeft:  left+'%'}
+        marginLeft = { marginLeft: left + '%' }
       }
     }
 
-    return(
+    return (
       <View style={[styles.container, style]}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           {this.renderTabBarLabel()}
         </View>
         <View style={[styles.lineContent, marginLeft, lineWidth]}>
-          <View style={[styles.line, {width: '80%'}, underlineStyle]} />
+          <View style={[styles.line, { width: '80%' }, underlineStyle]} />
         </View>
       </View>
     )

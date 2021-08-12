@@ -29,7 +29,7 @@ export default class RXRefreshHeader extends Component {
     hidden: false,
     refreshing: false,
     appHeader: null,
-    onPress: ()=>{},
+    onPress: () => { },
   }
 
   constructor(props) {
@@ -38,8 +38,8 @@ export default class RXRefreshHeader extends Component {
 
   renderWeb() {
     const { refreshing, style, onPress } = this.props;
-    if(refreshing) {
-      return(
+    if (refreshing) {
+      return (
         <View style={[styles.container, style]}>
           <ActivityIndicator animating={true} />
           {/* <RefreshControl refreshing={true} onRefresh={()=>{}}/> */}
@@ -48,7 +48,7 @@ export default class RXRefreshHeader extends Component {
     }
 
     return (
-      <TouchableOpacity style={[styles.container,style]} onPress={()=> onPress && onPress()}>
+      <TouchableOpacity style={[styles.container, style]} onPress={() => onPress && onPress()}>
         <Text style={styles.textPre}>点击<Text style={styles.textSuf}>刷新获取最新数据</Text></Text>
       </TouchableOpacity>
     )
@@ -56,9 +56,9 @@ export default class RXRefreshHeader extends Component {
 
   render() {
     const { hidden, appHeader } = this.props;
-    if(hidden) return null;
+    if (hidden) return null;
 
-    if(Platform.OS === 'web') {
+    if (Platform.OS === 'web') {
       return this.renderWeb();
     }
 

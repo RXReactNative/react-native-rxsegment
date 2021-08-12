@@ -105,15 +105,15 @@ export default class RXFlatList extends Component {
 
   _refreshControl = () => {
     if (this.props.onPullDown) {
-      if(Platform.OS === 'web') {
+      if (Platform.OS === 'web') {
         return null;
       }
       return (
-        <RefreshControl 
-            // colors={['red']}   //Android 指示器颜色
-            // tintColor={'blue'} //iOS 指示器颜色
-            refreshing={this.state.refreshing}
-            onRefresh={this._pullDownRefresh}
+        <RefreshControl
+          // colors={['red']}   //Android 指示器颜色
+          // tintColor={'blue'} //iOS 指示器颜色
+          refreshing={this.state.refreshing}
+          onRefresh={this._pullDownRefresh}
         />
       )
     }
@@ -123,26 +123,26 @@ export default class RXFlatList extends Component {
     const { webRefreshing } = this.state;
     return (
       <View style={[styles.container, this.props.style]}>
-        <RXRefreshHeader 
-          style={{marginBottom: 10}}
+        <RXRefreshHeader
+          style={{ marginBottom: 10 }}
           refreshing={webRefreshing}
-          onPress={()=>{
-            if(this.refFlatList && this.refFlatList.scrollToOffset) {
-              this.refFlatList.scrollToOffset({animated: true, offset: 0});
+          onPress={() => {
+            if (this.refFlatList && this.refFlatList.scrollToOffset) {
+              this.refFlatList.scrollToOffset({ animated: true, offset: 0 });
             }
             this._pullDownRefresh();
           }}
         />
         <FlatList {...this.props}
-          ref={(e)=> {this.refFlatList = e}}
+          ref={(e) => { this.refFlatList = e }}
           refreshControl={this._refreshControl()}
           onEndReachedThreshold={0.2}
-          onEndReached={this._pullUpRefresh} 
+          onEndReached={this._pullUpRefresh}
           ItemSeparatorComponent={this.props.itemSeparatorComponent}
         />
       </View>
     );
-    
+
   }
 }
 

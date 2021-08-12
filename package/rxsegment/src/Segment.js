@@ -1,10 +1,10 @@
 /**
- * 
+ *
  * @this Segment
- * 
+ *
  * @flow
  * ------------------------
- * 
+ *
  */
 
 'use strict'
@@ -44,7 +44,7 @@ class Segment extends Component {
       contents: [],
     }
     this.contentsCache = [],
-    this.childrenViews = [];
+      this.childrenViews = [];
   }
 
   componentDidMount() {
@@ -55,7 +55,7 @@ class Segment extends Component {
     let { children } = nextProps;
     children = children || [];
     let currentChildren = this.childrenViews || {};
-    if(children != currentChildren) {
+    if (children != currentChildren) {
       this.configDefaultContent(nextProps);
     }
   }
@@ -69,25 +69,25 @@ class Segment extends Component {
     let contentsCache = this.contentsCache;
     let cacheLength = contentsCache.length;
 
-    if(selectIndex>=length) selectIndex=0;
-    for(let i=0; i < length; i++) {
+    if (selectIndex >= length) selectIndex = 0;
+    for (let i = 0; i < length; i++) {
       let cacheItem = contentsCache[i];
 
-      if(i !== selectIndex){
+      if (i !== selectIndex) {
         var view = null;
-        if(cacheItem && i <= cacheLength) {
-          if(cacheItem.key) {
+        if (cacheItem && i <= cacheLength) {
+          if (cacheItem.key) {
             view = this.changeViewToHidden(this.childrenViews[i], i, length);
           }
-        }        
+        }
         contents.push(view)
-      } 
+      }
       else {
         let view = this.changeViewToShow(this.childrenViews[i], i, length);
         contents.push(view)
       }
     }
-    this.setState({contents, selectIndex});
+    this.setState({ contents, selectIndex });
   }
 
   buildChildren(props) {
@@ -101,17 +101,17 @@ class Segment extends Component {
     return children;
   }
 
-  changeViewToHidden(view, index=0, zIndex) {
+  changeViewToHidden(view, index = 0, zIndex) {
     return React.cloneElement(view, {
-      key: 'rx-segment-item-'+index,
-      style: [styles.viewHidden, {zIndex}],
+      key: 'rx-segment-item-' + index,
+      style: [styles.viewHidden, { zIndex }],
     });
   }
 
-  changeViewToShow(view, index=0, zIndex=1000) {
-    return React.cloneElement(view,{
-      key: 'rx-segment-item-'+index,
-      style: [styles.viewShow, {zIndex}],
+  changeViewToShow(view, index = 0, zIndex = 1000) {
+    return React.cloneElement(view, {
+      key: 'rx-segment-item-' + index,
+      style: [styles.viewShow, { zIndex }],
     });
   }
 
@@ -119,48 +119,48 @@ class Segment extends Component {
     Keyboard.dismiss();
     let { contents, selectIndex } = this.state;
     let length = contents.length || 0;
-    if(index >= length) return;
-    if(index != selectIndex) {
+    if (index >= length) return;
+    if (index != selectIndex) {
       var lastView = contents[selectIndex];
-      if(React.isValidElement(lastView)) {
+      if (React.isValidElement(lastView)) {
         lastView = this.changeViewToHidden(lastView, selectIndex, selectIndex);
         contents[selectIndex] = lastView;
       }
     }
     var view = contents[index];
-    if(!view || !React.isValidElement(view)) {
+    if (!view || !React.isValidElement(view)) {
       view = this.childrenViews[index];
     }
-    if(React.isValidElement(view)) {
-      view = this.changeViewToShow(view, index, length+index);
+    if (React.isValidElement(view)) {
+      view = this.changeViewToShow(view, index, length + index);
       let cacheItem = this.contentsCache[index];
-      if(!cacheItem || !cacheItem.key) {
-        this.contentsCache[index]=view;
+      if (!cacheItem || !cacheItem.key) {
+        this.contentsCache[index] = view;
       }
     }
     contents[index] = view;
 
-    this.setState({ contents, selectIndex:index })
+    this.setState({ contents, selectIndex: index })
   }
 
   renderTabBarView = () => {
     const { renderTabBar, tabBarLabels, tabBarStyle } = this.props;
     const { selectIndex } = this.state;
-    if(renderTabBar && typeof renderTabBar === 'function') {
+    if (renderTabBar && typeof renderTabBar === 'function') {
       let view = renderTabBar();
-      return React.cloneElement(view,{
+      return React.cloneElement(view, {
         selectIndex,
-        onPress: (index)=>this.changeSelect( index ),
+        onPress: (index) => this.changeSelect(index),
       });
     }
     else {
       return (
         <SegmentTabBar
-          style={ [{backgroundColor: 'blue'}, tabBarStyle] }
+          style={[{ backgroundColor: 'blue' }, tabBarStyle]}
           tabBarLabels={tabBarLabels}
           selectIndex={selectIndex}
-          underlineStyle={ {width: 25, height: 2} }
-          onPress={(index)=>{this.changeSelect( index )}}
+          underlineStyle={{ width: 25, height: 2 }}
+          onPress={(index) => { this.changeSelect(index) }}
         />
       )
     }
@@ -168,16 +168,16 @@ class Segment extends Component {
 
   renderChilder = () => {
     const { contents } = this.state;
-    return(
-      <View style={{flex: 1}}>
+    return (
+      <View style={{ flex: 1 }}>
         {contents}
       </View>
     )
   }
 
-  render(){
+  render() {
     const { style, renderTabBar, children, ...other } = this.props;
-    return(
+    return (
       <View style={[styles.container, style]}>
         {this.renderTabBarView()}
         {this.renderChilder()}

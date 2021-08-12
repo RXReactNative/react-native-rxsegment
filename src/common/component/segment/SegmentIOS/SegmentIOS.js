@@ -1,7 +1,7 @@
 /**
- * 
- * @this 
- * 
+ *
+ * @this
+ *
  * @flow
  */
 
@@ -38,22 +38,22 @@ export default class SegmentIOS extends Component {
 
   render() {
     const { style, tabBarLabels, children, ...other } = this.props;
-    return(
-        <RXSegment
-          style={[styles.container, style]}
-          tabBarLabels={tabBarLabels}
-          renderTabBar={()=>
-            <SegmentTab 
-              tabBarLabels={tabBarLabels}
-              // labelBorderRadius={0}
-              // middenLineEnable={true}
-              // middenLineStyle={{width: 5}}
-              {...other}
-            />
-          }
-        >
-          {children}
-        </RXSegment>
+    return (
+      <RXSegment
+        style={[styles.container, style]}
+        tabBarLabels={tabBarLabels}
+        renderTabBar={() =>
+          <SegmentTab
+            tabBarLabels={tabBarLabels}
+            // labelBorderRadius={0}
+            // middenLineEnable={true}
+            // middenLineStyle={{width: 5}}
+            {...other}
+          />
+        }
+      >
+        {children}
+      </RXSegment>
     )
   }
 }

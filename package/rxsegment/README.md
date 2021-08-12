@@ -13,7 +13,7 @@ Support iOS/Android/web
 
 ```js
 //default
-      <RXSegment 
+      <RXSegment
         tabBarStyle={{ backgroundColor: 'blue', paddingTop: 20}}
         tabBarLabels={['ios', 'android', 'web']}
       >

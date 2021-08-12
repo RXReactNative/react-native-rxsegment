@@ -1,8 +1,8 @@
 /**
- * 
+ *
  */
 'use strict'
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -21,19 +21,19 @@ export default class ListPageOne extends Component {
 
   render() {
     const { style } = this.props;
-    return(
+    return (
       <ScrollView style={style}>
-        <View style={{flex: 1,backgroundColor: 'gary'}}>
-          <View style={{flex: 1, marginTop: 100, height: 40, backgroundColor: 'blue'}}/>
+        <View style={{ flex: 1, backgroundColor: 'gary' }}>
+          <View style={{ flex: 1, marginTop: 100, height: 40, backgroundColor: 'blue' }} />
           <Text>{'1111111111'}</Text>
-          <Button 
+          <Button
             title={'jump diy -- -- '}
             color={'blue'}
-            onPress={()=>{
+            onPress={() => {
               this.props.navigation.navigate('mine');
             }}
           />
-          <View style={{flex: 1, marginTop: 100, height: 400, backgroundColor: 'blue'}}/>
+          <View style={{ flex: 1, marginTop: 100, height: 400, backgroundColor: 'blue' }} />
         </View>
       </ScrollView>
     )

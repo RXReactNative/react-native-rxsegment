@@ -1,6 +1,6 @@
 /**
  * react-native-rxsegment
- * 
+ *
  * srxboys
  */
 declare module 'react-native-rxsegment' {
@@ -14,7 +14,7 @@ declare module 'react-native-rxsegment' {
   export class RXSegment extends Component<ViewProps> {
     /**
      * renderTabBar={()=>
-     *     <RXSegmentTabBar 
+     *     <RXSegmentTabBar
      *        style={{ backgroundColor: 'red'}}
      *        tabBarLabels={tabBarLabels}
      *        underlineStyle={ {width: 25, height: 2} }
@@ -24,7 +24,7 @@ declare module 'react-native-rxsegment' {
     renderTabBar?: () => React.ReactElement | null;
 
     /**
-     * this is an Array<{string|number}> 
+     * this is an Array<{string|number}>
      */
     tabBarLabels?: any;
   }
@@ -32,16 +32,16 @@ declare module 'react-native-rxsegment' {
 
 
 
-  
+
 
   export class RXSegmentTabBar extends Component<ViewProps> {
-    
+
     tabBarStyle?: StyleProp<ViewStyle>;
 
     underlineStyle?: StyleProp<ViewStyle>;
 
     /**
-     * this is an Array<{string|number}> 
+     * this is an Array<{string|number}>
      */
     tabBarLabels?: any;
 
@@ -59,5 +59,5 @@ declare module 'react-native-rxsegment' {
     renderMiddenLine(index: number): Component;
     renderLabel(title: string,index: number): Component;
   }
-  
+
 }

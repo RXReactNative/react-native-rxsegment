@@ -1,5 +1,5 @@
-import React,{ Component } from 'react';
-import { 
+import React, { Component } from 'react';
+import {
   Text,
   BackHandler,
   TouchableOpacity
@@ -8,7 +8,7 @@ import PlatformUtil from '../utils/PlatformUtil';
 
 
 class RXPage extends Component {
-// export default class RXPage extends Component {
+  // export default class RXPage extends Component {
   constructor(props) {
     super(props);
 
@@ -63,62 +63,62 @@ class RXPage extends Component {
     this.props.navigation.setParams({ navigateRightPress: this.__navigateRightPress });
   }
 
-  __navigateRightPress = (params=null) => {
-    if(this.navigateRightPress) {
+  __navigateRightPress = (params = null) => {
+    if (this.navigateRightPress) {
       this.navigateRightPress(params);
     }
-    else if(__DEV__){
-        let navigation = this.navigation || {};
-        let state = navigation.state || {};
-        routeName = state.routeName || 'routeName=empty-page';
-        console.error('navigateRightPress() is not implemented on the current `'+routeName+'` page');
+    else if (__DEV__) {
+      let navigation = this.navigation || {};
+      let state = navigation.state || {};
+      routeName = state.routeName || 'routeName=empty-page';
+      console.error('navigateRightPress() is not implemented on the current `' + routeName + '` page');
     }
   }
-//  ----------------------------------------------------------
+  //  ----------------------------------------------------------
   /**
    * 目前使用的 react-navigation 默认的导航栏
    * 
    * https://reactnavigation.org/docs/zh-Hans/stack-navigator.html#navigationoptions-used-by-stacknavigator
-   */  
+   */
 
   static configNavigation(navigation) {
     let title = this.navigationTitle();
     let backTitle = this.navigationBackTitle();
     let rightTitle = this.navigationRightTitle();
     var navMap = {};
-    if(this._stringEnable(title)) {
+    if (this._stringEnable(title)) {
       navMap['title'] = title;
     }
     // else {
     //   navMap['title'] = navigation.getParam('otherParam', 'title')
     // }
 
-    if(this._stringEnable(backTitle)) {
-      navMap['headerBackTitle'] =  backTitle+'';
+    if (this._stringEnable(backTitle)) {
+      navMap['headerBackTitle'] = backTitle + '';
     }
 
-    if(rightTitle && React.isValidElement(rightTitle)) {
+    if (rightTitle && React.isValidElement(rightTitle)) {
       navMap['headerRight'] = rightTitle;
-    }else if(this._stringEnable(rightTitle)) {
-      let rightView = <TouchableOpacity 
-                        activeOpacity={0.5} 
-                        onPress={()=>{
-                          let navigateRightPress = navigation.state.params.navigateRightPress;
-                          navigateRightPress && navigateRightPress();
-                        }}
-                      >
-                        <Text style={{color: 'gray', fontSize: 15, paddingRight:15}}
-                        >{rightTitle}</Text>
-                      </TouchableOpacity>
+    } else if (this._stringEnable(rightTitle)) {
+      let rightView = <TouchableOpacity
+        activeOpacity={0.5}
+        onPress={() => {
+          let navigateRightPress = navigation.state.params.navigateRightPress;
+          navigateRightPress && navigateRightPress();
+        }}
+      >
+        <Text style={{ color: 'gray', fontSize: 15, paddingRight: 15 }}
+        >{rightTitle}</Text>
+      </TouchableOpacity>
       navMap['headerRight'] = rightView;
     }
     return navMap;
   }
 
   static _stringEnable(str) {
-    if(!str) return false;
-    if(typeof str === 'number') return true;
-    if(typeof str !== 'string') return false;
+    if (!str) return false;
+    if (typeof str === 'number') return true;
+    if (typeof str !== 'string') return false;
     return true;
   }
 
@@ -134,7 +134,7 @@ class RXPage extends Component {
   //   // 可以是组件 ， 也可以是 number / string
   //   return null;
   // }
-//  ----------------------------------------------------------
+  //  ----------------------------------------------------------
 }
 
 module.exports = RXPage;

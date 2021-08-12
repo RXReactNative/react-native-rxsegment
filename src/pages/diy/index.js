@@ -1,4 +1,4 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -18,8 +18,8 @@ export default class Mine extends RXPage {
 
   //目前 web的没有写好 (No support for Web)
   static navigationOptions = ({ navigation }) => {
-    if(Platform.OS != 'web')
-    return this.configNavigation(navigation);
+    if (Platform.OS != 'web')
+      return this.configNavigation(navigation);
   }
 
   static navigationTitle() {
@@ -41,12 +41,12 @@ export default class Mine extends RXPage {
 
 
   render() {
-    return(
-      <View style={{flex: 1, backgroundColor: 'white'}}>
-        <Text style={{marginBottom: 10}}>{'diy segment'}</Text>
+    return (
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <Text style={{ marginBottom: 10 }}>{'diy segment'}</Text>
         <SegmentIOS tabBarLabels={['ios', 'android', 'web']}>
-          <ListPageOne navigation={this.navigation}/>
-          <ListPageTwo navigation={this.navigation}/>
+          <ListPageOne navigation={this.navigation} />
+          <ListPageTwo navigation={this.navigation} />
         </SegmentIOS>
       </View>
     )
