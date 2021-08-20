@@ -51,7 +51,7 @@ export default class Home extends RXPage {
           tabBarStyle={{ backgroundColor: 'blue', paddingTop: 20 }}
           tabBarLabels={['ios', 'android', 'web']}
         >
-          <View style={styles.container} />
+          <View style={styles.container}>3, 仅有一个子元素</View>
         </RXSegment>
 
         <RXSegment
@@ -65,8 +65,8 @@ export default class Home extends RXPage {
             />
           }
         >
-          <View style={styles.container} />
-          <View style={styles.container} />
+          <View style={styles.container}>4仅2, 第1个元素</View>
+          <View style={styles.container}>4仅2, 第2个元素</View>
         </RXSegment>
 
 
@@ -78,9 +78,9 @@ export default class Home extends RXPage {
             />
           }
         >
-          <View style={styles.container} />
-          <View style={styles.container} />
-          <View style={styles.container} />
+          <View style={styles.container}>第 ① 个元素</View>
+          <View style={styles.container}>第 ② 个元素</View>
+          <View style={styles.container}>第 ③ 个元素</View>
         </RXSegment>
 
 
@@ -97,9 +97,9 @@ export default class Home extends RXPage {
             />
           }
         >
-          <View style={styles.container} />
-          <View style={styles.container} />
-          <View style={styles.container} />
+          <View style={styles.container}>第 ① 个元素</View>
+          <View style={styles.container}>第 ② 个元素</View>
+          <View style={styles.container}>第 ③ 个元素</View>
         </RXSegment>
       </View>
     )

@@ -44,7 +44,7 @@ class Segment extends Component {
       contents: [],
     }
     this.contentsCache = [],
-      this.childrenViews = [];
+    this.childrenViews = [];
   }
 
   componentDidMount() {
@@ -54,7 +54,7 @@ class Segment extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     let { children } = nextProps;
     children = children || [];
-    let currentChildren = this.childrenViews || {};
+    const currentChildren = this.childrenViews || {};
     if (children != currentChildren) {
       this.configDefaultContent(nextProps);
     }
@@ -62,19 +62,19 @@ class Segment extends Component {
 
   configDefaultContent(props) {
     this.childrenViews = this.buildChildren(props);
-    let length = this.childrenViews.length;
-    var contents = [];
-    let selectIndex = this.state.selectIndex;
+    const length = this.childrenViews.length;
+    const contents = [];
+    const selectIndex = this.state.selectIndex;
 
-    let contentsCache = this.contentsCache;
-    let cacheLength = contentsCache.length;
+    const contentsCache = this.contentsCache;
+    const cacheLength = contentsCache.length;
 
     if (selectIndex >= length) selectIndex = 0;
     for (let i = 0; i < length; i++) {
-      let cacheItem = contentsCache[i];
+      const cacheItem = contentsCache[i];
 
       if (i !== selectIndex) {
-        var view = null;
+        let view = null;
         if (cacheItem && i <= cacheLength) {
           if (cacheItem.key) {
             view = this.changeViewToHidden(this.childrenViews[i], i, length);
@@ -118,22 +118,22 @@ class Segment extends Component {
   changeSelect = (index) => {
     Keyboard.dismiss();
     let { contents, selectIndex } = this.state;
-    let length = contents.length || 0;
+    const length = contents.length || 0;
     if (index >= length) return;
     if (index != selectIndex) {
-      var lastView = contents[selectIndex];
+      let lastView = contents[selectIndex];
       if (React.isValidElement(lastView)) {
         lastView = this.changeViewToHidden(lastView, selectIndex, selectIndex);
         contents[selectIndex] = lastView;
       }
     }
-    var view = contents[index];
+    let view = contents[index];
     if (!view || !React.isValidElement(view)) {
       view = this.childrenViews[index];
     }
     if (React.isValidElement(view)) {
       view = this.changeViewToShow(view, index, length + index);
-      let cacheItem = this.contentsCache[index];
+      const cacheItem = this.contentsCache[index];
       if (!cacheItem || !cacheItem.key) {
         this.contentsCache[index] = view;
       }

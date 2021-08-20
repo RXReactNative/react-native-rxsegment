@@ -108,10 +108,10 @@ class SegmentTabBar extends Component {
     let { style, underlineStyle, selectIndex, tabBarLabels } = this.props;
 
     tabBarLabels = tabBarLabels || [];
-    var lineWidth = {};
+    let lineWidth = {};
     let marginLeft = {};
     if (Array.isArray(tabBarLabels)) {
-      let row = (1 / (tabBarLabels.length * 1.0)) * 100;
+      const row = (1 / (tabBarLabels.length * 1.0)) * 100;
       lineWidth = { width: row + '%' };
 
       if (selectIndex < tabBarLabels.length) {

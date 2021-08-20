@@ -34,11 +34,9 @@ export default class Mine extends RXPage {
     return 'right';
   }
 
-
   navigateRightPress = () => {
     alert('right onPress');
   }
-
 
   render() {
     return (

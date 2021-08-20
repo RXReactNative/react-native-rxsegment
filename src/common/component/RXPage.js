@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 import PlatformUtil from '../utils/PlatformUtil';
 
-
 class RXPage extends Component {
   // export default class RXPage extends Component {
   constructor(props) {
@@ -77,7 +76,7 @@ class RXPage extends Component {
   //  ----------------------------------------------------------
   /**
    * 目前使用的 react-navigation 默认的导航栏
-   * 
+   *
    * https://reactnavigation.org/docs/zh-Hans/stack-navigator.html#navigationoptions-used-by-stacknavigator
    */
 
