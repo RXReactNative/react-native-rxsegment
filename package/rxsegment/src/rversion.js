@@ -22,7 +22,6 @@ const rversion = function(lib1, lib2) {
     return false
   }
 
-
   function fn(f) {
     if (f && typeof f === 'function') {
       return f()
@@ -36,4 +35,5 @@ const rversion = function(lib1, lib2) {
     return fn(lib2)
   }
 }
+
 module.exports = rversion
