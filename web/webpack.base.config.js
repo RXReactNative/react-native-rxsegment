@@ -96,18 +96,18 @@ module.exports = {
   ],
   optimization: {
     splitChunks: {
-        cacheGroups: {
-          commons: {
-            name: "commons",
-            chunks: "initial",
-            minChunks: 2
-          },
-          vendors: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            chunks: "all"
-          }
+      cacheGroups: {
+        commons: {
+          name: "commons",
+          chunks: "initial",
+          minChunks: 2
+        },
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
         }
+      }
     }
   },
   module: {
@@ -119,7 +119,7 @@ module.exports = {
       webViewConfiguration
     ]
   },
-
+  performance: { hints: false },
   resolve: {
     // This will only alias the exact import "react-native"
     alias: {
