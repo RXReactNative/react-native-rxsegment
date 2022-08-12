@@ -11,12 +11,17 @@ const rversion = function(lib1, lib2) {
     if (v === '') {
       return false
     }
-    const va = v.split('.') || ['']
+    const va = v.split('.') || ['', '']
     const v1 = va[0]
+    const v2 = va[1]
     if (v1 === '') {
       return false
     }
-    if (parseInt(v1) >= 17) {
+    const pv1 = parseInt(v1) || 0
+    const pv2 = parseInt(v2) || 0
+    if (pv1 >= 17) {
+      return true
+    } else if (pv1 >= 16 && pv2 >= 3) {
       return true
     }
     return false

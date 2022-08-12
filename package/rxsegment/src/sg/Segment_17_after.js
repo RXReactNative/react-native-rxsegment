@@ -47,7 +47,7 @@ class Segment extends Component {
     this.childrenViews = [];
   }
 
-  UNSAFE_componentDidMount() {
+  componentDidMount() {
     this.configDefaultContent(this.props);
   }
 

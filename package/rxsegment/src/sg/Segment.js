@@ -51,7 +51,7 @@ class Segment extends Component {
     this.configDefaultContent(this.props);
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     let { children } = nextProps;
     children = children || [];
     const currentChildren = this.childrenViews || {};
